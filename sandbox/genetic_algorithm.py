@@ -13,7 +13,7 @@ def run(problem, params):
     maxit = params.maxit
     npop = params.npop
     pc = params.pc
-    nc = np.round(pc*npop/2) * 2 #inteiro par
+    nc = int(np.round(pc*npop/2) * 2) #inteiro par
     gamma = params.gamma
     mu = params.mu
     sigma = params.sigma
@@ -82,13 +82,14 @@ def run(problem, params):
             bestcost[it] = bestsol.cost
 
             # Show iteration Information
-            print("Iteration {}: Best Cosst = {}".format(it, bestcost[it]))
+        print("Iteration {}: Best Cosst = {}".format(it, bestcost[it]))
 
     # Output
     out = structure()
     out.pop = pop
+    out.bestsol = bestsol
+    out.bestcost = bestcost
     return out
-
 
 def crossover(p1, p2, gamma=0.1):
     c1 = p1.deepcopy()

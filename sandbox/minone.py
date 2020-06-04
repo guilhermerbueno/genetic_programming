@@ -27,4 +27,3 @@ params.sigma = 0.1
 out = genetic_algorithm.run(problem, params)
 
 # Results
-
